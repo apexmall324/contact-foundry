@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contact Foundry | VCF Generator</title>
+</head>
+<body>
+    <main class="page-shell">
+        <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">C</span> Contact Foundry</a><a class="nav-link" href="#history">Export archive</a></header>
+        <div id="notice" class="notice" hidden>Your VCF file is ready and has been added to the archive.</div>
+        <section class="hero"><div><p class="eyebrow">Simple contact tooling</p><h1>Turn a phone list into something useful.</h1><p class="lede">Create clean, numbered VCF contact files in seconds. Keep your exports together and edit any list whenever it needs a second pass.</p></div><div class="hero-note"><strong>One list. One clean file.</strong><span>Paste numbers, name the group, and take it straight to your phone.</span></div></section>
+        <section class="workspace">
+            <div class="panel"><div class="panel-header"><div><p class="eyebrow">New export</p><h2>Build a contact file</h2></div></div><form id="generator-form"><div class="form-grid"><div><label for="base-name">Contact base name</label><input id="base-name" type="text" name="base_name" placeholder="e.g. Apor-pen" required></div><div><label for="start-number">Start number</label><input id="start-number" type="number" name="start_number" value="1" min="0" required></div></div><label for="raw-numbers">Phone numbers</label><textarea id="raw-numbers" name="raw_numbers" placeholder="Paste one or many numbers here..." required></textarea><button class="button button-primary form-submit" type="submit">Generate and save VCF</button></form></div>
+            <aside class="panel"><p class="eyebrow">Quick note</p><h2>Keep the naming tidy.</h2><p class="lede">Your base name becomes the contact label and the exported filename. The starting number lets you continue an existing sequence.</p><div class="tip"><strong>Numbers are cleaned automatically.</strong> Spaces and common separators are removed before the contacts are saved.</div></aside>
+            <div class="panel history" id="history"><div class="history-heading"><div><p class="eyebrow">Archive</p><h2>Previous exports</h2></div><p>Your recent VCF files, ready to revisit.</p></div><div class="table-wrap"><table><thead><tr><th>Date</th><th>Filename</th><th>Contacts</th><th>Actions</th></tr></thead><tbody id="archive-body"></tbody></table></div></div>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
