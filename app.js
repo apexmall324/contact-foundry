@@ -31,8 +31,11 @@ function downloadVcf(file) {
 }
 
 function parseNumbers(rawInput) {
-    const matches = rawInput.match(/\+?[0-9\s]{8,}/g) || [];
-    return [...new Set(matches.map((number) => number.replace(/[^0-9+]/g, "")).filter(Boolean))];
+    const tokens = rawInput.split(/[\n\r,;\t]+/);
+    const numbers = tokens
+        .map((token) => token.replace(/[^0-9+]/g, ""))
+        .filter((number) => number.length >= 7);
+    return [...new Set(numbers)];
 }
 
 function formatDate(value) {
